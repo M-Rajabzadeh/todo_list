@@ -35,7 +35,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
    context_object_name = 'task'
    template_name = 'base/task.html'
 
-class TaskCreate(CreateView):
+class TaskCreate(LoginRequiredMixin, CreateView):
    model = Task
    fields = ['title', 'description', 'complete']
    success_url = reverse_lazy('tasks')
